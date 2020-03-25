@@ -1,0 +1,23 @@
+{
+  "name": "sunset-buildings",
+  "version": "1.0.0",
+  "description": "",
+  "main": "sunset-buildings.js",
+  "scripts": {
+    "test": "jest --watchAll"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leechongren/sunset-buildings.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leechongren/sunset-buildings/issues"
+  },
+  "homepage": "https://github.com/leechongren/sunset-buildings#readme",
+  "devDependencies": {
+    "jest": "^25.1.0"
+  }
+}
