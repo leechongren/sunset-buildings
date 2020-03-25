@@ -55,4 +55,28 @@ describe("Sunset Buildings", () => {
       { Able_to_view: false }
     ]);
   });
+
+  it("should return view 'false' and 'false' if second and third building are consecutively shorter", () => {
+    expect(sunsetBuildings([5, 4, 2])).toStrictEqual([
+      { Able_to_view: true, Which_Floors: "All Floors" },
+      { Able_to_view: false },
+      { Able_to_view: false }
+    ]);
+  });
+
+  it("should return view 'true' and 'false' if second building is taller and third building is shorter", () => {
+    expect(sunsetBuildings([2, 4, 3])).toStrictEqual([
+      { Able_to_view: true, Which_Floors: "All Floors" },
+      { Able_to_view: true, Which_Floors: "3 to 4" },
+      { Able_to_view: false }
+    ]);
+  });
+
+  it("should return view 'false' and 'true' if second building is taller and third building is shorter", () => {
+    expect(sunsetBuildings([5, 4, 8])).toStrictEqual([
+      { Able_to_view: true, Which_Floors: "All Floors" },
+      { Able_to_view: false },
+      { Able_to_view: true, Which_Floors: "5 to 8" }
+    ]);
+  });
 });
