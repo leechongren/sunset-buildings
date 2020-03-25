@@ -30,5 +30,29 @@ describe("Sunset Buildings", () => {
       { Able_to_view: true, Which_Floors: "All Floors" },
       { Able_to_view: true, Which_Floors: "2 to 5" }
     ]);
+    expect(sunsetBuildings([4, 8])).toStrictEqual([
+      { Able_to_view: true, Which_Floors: "All Floors" },
+      { Able_to_view: true, Which_Floors: "5 to 8" }
+    ]);
+  });
+
+  it("should return view 'true' and the range of heights to view from if second and third building is taller", () => {
+    expect(sunsetBuildings([1, 5, 9])).toStrictEqual([
+      { Able_to_view: true, Which_Floors: "All Floors" },
+      { Able_to_view: true, Which_Floors: "2 to 5" },
+      { Able_to_view: true, Which_Floors: "6 to 9" }
+    ]);
+    expect(sunsetBuildings([4, 8, 10])).toStrictEqual([
+      { Able_to_view: true, Which_Floors: "All Floors" },
+      { Able_to_view: true, Which_Floors: "5 to 8" },
+      { Able_to_view: true, Which_Floors: "9 to 10" }
+    ]);
+  });
+
+  it("should return view 'false' if second building is shorter", () => {
+    expect(sunsetBuildings([5, 4])).toStrictEqual([
+      { Able_to_view: true, Which_Floors: "All Floors" },
+      { Able_to_view: false }
+    ]);
   });
 });
