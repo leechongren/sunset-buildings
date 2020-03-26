@@ -2,7 +2,10 @@ const sunsetBuildings = arrOfBuildings => {
   let numOfBuildings = arrOfBuildings.length;
   let positionOfBuilding = 1;
   const resultArray = [{ Able_to_view: true, Which_Floors: "All Floors" }];
-
+  const moveToNext = () => {
+    numOfBuildings--;
+    positionOfBuilding++;
+  };
   while (numOfBuildings > 1) {
     const isTaller =
       arrOfBuildings[positionOfBuilding] >
@@ -19,21 +22,18 @@ const sunsetBuildings = arrOfBuildings => {
           Able_to_view: true,
           Which_Floors: `${heightThatCanViewBtm} to ${heightThatCanViewTop}`
         });
-        numOfBuildings--;
-        positionOfBuilding++;
+        moveToNext();
       } else {
         const heightThatCanView = arrOfBuildings[positionOfBuilding];
         resultArray.push({
           Able_to_view: true,
           Which_Floors: `${heightThatCanView}`
         });
-        numOfBuildings--;
-        positionOfBuilding++;
+        moveToNext();
       }
     } else {
       resultArray.push({ Able_to_view: false });
-      numOfBuildings--;
-      positionOfBuilding++;
+      moveToNext();
     }
   }
 
